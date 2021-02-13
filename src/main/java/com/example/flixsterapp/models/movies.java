@@ -9,6 +9,7 @@ import java.util.List;
 
 public class movies {
 
+    String backdropPath;
     String posterPath;
     String title;
     String overview;
