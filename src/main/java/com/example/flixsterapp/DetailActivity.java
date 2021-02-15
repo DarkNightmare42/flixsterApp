@@ -30,7 +30,7 @@ public class DetailActivity extends YouTubeBaseActivity {
     TextView itemOverview;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
-
+ //comment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
