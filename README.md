@@ -19,7 +19,7 @@
 
 ### App Walkthough GIF
 
-<img src="Flixters2_Demo.gif" width=250><br>
+<img src="Flix2_Demo.gif" width=250><br>
 
 ### Notes
 
