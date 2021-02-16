@@ -2,6 +2,8 @@ package com.example.flixsterapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
@@ -57,7 +59,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                     }
                     String youtubeKey = results.getJSONObject(0).getString("key");
                     Log.d("DetailActivity", youtubeKey);
-                    initializeYoutube(youtubeKey);
+                    initializeYoutube(youtubeKey, (float)movies.getRating());
                 } catch (JSONException e) {
                     Log.e("DetailActivity", "Failed to parse JSON", e);
                     e.printStackTrace();
@@ -72,12 +74,17 @@ public class DetailActivity extends YouTubeBaseActivity {
 
     }
 
-    private void initializeYoutube(String youtubeKey) {
+    private void initializeYoutube(String youtubeKey, float rating) {
         youTubePlayerView.initialize(api_key, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DetailActivity", "onInitializationSuccess");
-                youTubePlayer.loadVideo(youtubeKey);
+                if(rating >= 5){
+                    youTubePlayer.loadVideo(youtubeKey);
+                }
+                else {
+                    youTubePlayer.cueVideo(youtubeKey);
+                }
             }
 
             @Override
